@@ -1,8 +1,10 @@
-const HomePage = require('../pages/HomePage');
-
-let homeActions 
+const HomePage = require('../pages/HomePage'); 
 const itemsToCart = 2;
 const textValidator = '720';
+const userName = 'Diego';
+const userCardNumber = '123456789';
+
+let homeActions
 
 describe('E2E Test', () => {
   beforeEach(() => {
@@ -14,5 +16,6 @@ describe('E2E Test', () => {
       homeActions.addItems(itemsToCart);
       homeActions.seeCart();
       homeActions.totalAmmount().should('have.text', textValidator);
+      homeActions.completeOrder(userName, userCardNumber);
      })
   })

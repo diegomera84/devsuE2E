@@ -17,7 +17,11 @@ class HomePage {
       addToCartBtn : () => cy.get('a.btn'),
       cartMenu : () => cy.get('[id="navbarExample"]').children().eq(0).children().eq(3).children().eq(0),
       homeMenu : () => cy.get('[id="navbarExample"]').children().eq(0).children().eq(0).children().eq(0),
-      total : () => cy.get('[id="totalp"]')
+      total : () => cy.get('[id="totalp"]'),
+      placeOrderBtn : () => cy.get('[class="btn btn-success"]'),
+      nameInput : () => cy.get('[id="name"]'),
+      cardInput : () => cy.get('[id="card"]'),
+      purchaseOrderBtn : () => cy.get('[class="btn btn-primary"]')
     }
   
     /**
@@ -47,51 +51,22 @@ class HomePage {
     totalAmmount() {
       return this.elements.total();
     }
-  
+
     /**
-     * Modifys todo element text.
+     * Completes shopping form.
      *
-     * @param {number} optionNumber The todo option number.
+     * @param {string} name The items number.
      *
-     * @param {string} newText The new text.
+     * @param {string} cardNumber The items number.
      */
-    modifyText(optionNumber, newText) {
-      const toDoOption =  this.elements.toDoList().eq(optionNumber-1); 
-      toDoOption.dblclick().type('{selectall}{backspace}').type(newText+'{enter}');
-    }
-  
-    /**
-     * Mark a element as complet.
-     *
-     * @param {number} optionNumber The todo option number.
-     */
-   completeToDoElement(optionNumber) {
-    const toDoOption =  this.elements.toDoList().eq(optionNumber-1); 
-    toDoOption.children().eq(0).children().eq(0).click();
-    }
-  
-    /**
-     * See the complete elements.
-     */
-    showCompleteElements() {
-    const toDoOption =  this.elements.toDoList().eq(optionNumber-1); 
-    toDoOption.children().eq(0).children().eq(0).click();
-    }
-  
-    /**
-     * Prints the listed elements in console.
-     */
-    printElements() {
-      const lsit =  this.elements.toDoList(); 
-      lsit.invoke('text')
-      .then((text1) => {
-        let arr = text1.split('\n');
-        let element1 = arr[3].slice(8);
-        let element2 = arr[12].slice(8);
-        console.log('1st-'+element1);
-        console.log('2nd-'+element2);
-      });
+    completeOrder(name, cardNumber) {
+        this.elements.placeOrderBtn().click();
+        this.elements.nameInput().type(name);
+        this.elements.cardInput().type(cardNumber);
+        this.elements.purchaseOrderBtn().click();
       }
+  
+   
   }
   
   module.exports = HomePage;
