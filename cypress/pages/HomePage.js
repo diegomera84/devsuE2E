@@ -18,10 +18,11 @@ class HomePage {
       cartMenu : () => cy.get('[id="navbarExample"]').children().eq(0).children().eq(3).children().eq(0),
       homeMenu : () => cy.get('[id="navbarExample"]').children().eq(0).children().eq(0).children().eq(0),
       total : () => cy.get('[id="totalp"]'),
-      placeOrderBtn : () => cy.get('[class="btn btn-success"]'),
+      placeOrderBtn : () => cy.get('[class="btn btn-success"]').eq(0),
       nameInput : () => cy.get('[id="name"]'),
       cardInput : () => cy.get('[id="card"]'),
-      purchaseOrderBtn : () => cy.get('[class="btn btn-primary"]')
+      purchaseOrderBtn : () => cy.get('[class="btn btn-primary"]').eq(2),
+      confirmBtn : () => cy.get('[class="confirm btn btn-lg btn-primary"]')
     }
   
     /**
@@ -65,6 +66,13 @@ class HomePage {
         this.elements.cardInput().type(cardNumber);
         this.elements.purchaseOrderBtn().click();
       }
+
+      /**
+     * Finishes shopping.
+     */
+    finishShopping() {
+      this.elements.confirmBtn().click();
+    }
   
    
   }

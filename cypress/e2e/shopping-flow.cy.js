@@ -17,5 +17,6 @@ describe('E2E Test', () => {
       homeActions.seeCart();
       homeActions.totalAmmount().should('have.text', textValidator);
       homeActions.completeOrder(userName, userCardNumber);
+      homeActions.finishShopping();
      })
   })
