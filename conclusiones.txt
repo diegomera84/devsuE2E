@@ -1,0 +1,5 @@
+Se resolviovio el primer ejercicio exitosamente
+
+La página de prueba es muy apta para automatizar flujos aunque se podrían agregar más IDs a los elementos web ya que no todos los tienen.
+
+Hay elementos que tardan en cargar por lo que tuve que aumentar el tiempo global de espera de los elementos web
