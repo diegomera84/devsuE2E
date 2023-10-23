@@ -35,6 +35,11 @@ For Firefox
 ```bash
 yarn cy:run:firefox
 ```
+For API testing
+
+```bash
+yarn cy:run:apiTests
+```
 ## Reports
 
 The reports will be generated automatically and stored in:
