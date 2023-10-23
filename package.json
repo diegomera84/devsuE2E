@@ -12,6 +12,7 @@
     "scripts": {
       "cy:run:chrome": "cypress run --browser chrome",
       "cy:run:firefox": "cypress run --browser firefox",
-      "cy:run:edge": "cypress run --browser edge"
+      "cy:run:edge": "cypress run --browser edge",
+      "cy:run:apiTests": "cypress run cypress/e2e/apiTest.cy.js"
     }
   }
